@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.81.0" />
+
+
+<title>How Predicting The NCAA Tournament with Machine Learning went Terribly Wrong - Tyler Fangman&#39;s GitHub Site</title>
+<meta property="og:title" content="How Predicting The NCAA Tournament with Machine Learning went Terribly Wrong - Tyler Fangman&#39;s GitHub Site">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">5 min read</span>
+    
+
+    <h1 class="article-title">How Predicting The NCAA Tournament with Machine Learning went Terribly Wrong</h1>
+
+    
+    <span class="article-date">0001-01-01</span>
+    
+
+    <div class="article-content">
+      
+
+
+<p>After only getting two games wrong in the B1G Tournament, I was sitting on top of the world. I thought I was a data genius and felt pretty confident going to the NCAA Tournament’s first round. After all, I got three out of the four of the First Four games correct. Then it all came crumbling down. In our class NCAA ESPN Tournament Challenge, I finished in 15th and only correctly predicted 14% of the games. For this post, I will be doing a post mortem of where I went wrong in each region’s first-round games and how I could maybe do it differently next time.</p>
+<p>WEST REGION 1ST ROUND
+My first round in the West region was my best region as I only got one first-round game incorrect. Virginia over Ohio. My data did not consider that Virginia the week before had to back out of the ACC Tournament due to COVID-related issues. Virginia was not able to make the trip to Indianapolis until a day before their game. The only other game in this region that would possibly be up in the air was the VCU Oregon match that had Oregon automatically advance into the second round because VCU had COVID issues. Considering how the PAC-12 did in the tournament, I have the feeling Oregon would have waxed VCU.</p>
+<p>EAST REGION 1ST ROUND
+This region was also pretty kind to my model as it only missed two games. My model loved the favorites, so picking underdogs was just not an option. The two games I missed in this region were 11 seed UCLA toppling six seed BYU(extremely overseeded, by the way). The big surprise was 14 seed, Abilene Christian, defeating three seed Texas just a week after the Longhorns won the Big 12 Championship. I honestly have no clue how the Wildcats beat this Longhorns team shooting 29% from the field and 16% from three; if you play that game 100 times, I believe the Longhorns win 99 of them. The UCLA-BYU game personally, I think that UCLA had one of the most improbable and fun runs to the Final Four in recent memory and on the wrong side of one the greatest games in Final Four history. This game in my Rolling Means model was a 60-40 split close to a toss-up, and UCLA hit 42% of their threes while BYU only hit 17%.</p>
+<p>SOUTH REGION 1ST ROUND
+My bracket started to unravel in the South Region; my model had some upsets in the region; they just happened to be the wrong upsets. I missed four first-round games in this region. I was ecstatic when my model picked Winthrop to beat Villanova in the first round. That was my favorite upset pick. Winthrop had won 43 of their last 47, and Villanova was reeling, losing one of the Big East Player of the Years in Collin Gillespie and an upset loss to Georgetown in the first round of the Big East Tournament. This should be a reminder to myself Jay Wright is one heck of a coach. This next game makes me upset as 13 seed North Texas defeated four seed, Purdue. Every year I predict Purdue to do well. They get upset in the first round. In the one year, I predict Purdue to get upset in the first round they go to the Elite 8 go figure. If you look at the box score, it just looks like the Mean Green had a better shooting night. This game happened to go into Overtime, and from there, it was all North Texas. The Utah State Texas Tech game was one of my model’s closest games, with Utah State having a 52% chance to win the game. Looking at the team stats, Utah State lost this game because they shot poorly from three 21% and 50% from the stripe in a toss-up game like this; according to my model, these two stats will kill you. The last game I got wrong in this region was a shocker two-seed Ohio State bounced by 15 seed Oral Roberts. I had the Buckeyes in my Final Four. I should have thought more about how the Golden Eagles had the leading scorer in the NCAA in Max Abmas. Oral Roberts sure did give us a magical tournament run.</p>
+<p>MIDWEST REGION 1ST ROUND
+In the Midwest Region, I only missed two games. My model did not see five seed Tenessee losing 12 seed Oregon State. All week leading up to the game, I thought Tennessee was garbage turns out I was right, but I changed my mind at the last second. The other game I missed was 11 seed Syracuse upsetting six seed San Diego State. I believe San Diego State just ran into a buzzsaw with Syracuse. It is difficult to beat a team shooting 55% from three and the floor. Buddy Boeheim had 30 points that game and could not miss from outside. He was 70% from three point range which is absurd. In Tennessee’s case, they just got utterly ran out of the gym and could not hit outside as they only shot 19% from the three. We saw the Beavers go on quite the magical run to the Elite 8 themselves.</p>
+<p>In Conclusion, my first-round games outside of the South Region were not all that bad. It occurred in the following rounds, and if I had a team go far and they lost in the first weekend. If I were to do it repeatedly, I would probably use the same metrics or a variation of offensive and defensive rating such as effective field goal percentage using rolling data, but I would not use Random Forest. Instead, I would use XGboost. When it comes to would I have done better myself, I do not think I would have because I loved the B1G this year and did not respect the PAC-12 at all this season. I learned that outside of volleyball, do not count on the B1G to do anything, especially in the postseason.</p>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+    
+
+    
+  </body>
+</html>
+
